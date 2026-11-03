@@ -1,0 +1,53 @@
+{
+  "name": "opencode-rate-limit-fallback-v2",
+  "version": "0.1.0",
+  "description": "OpenCode V2 plugin that switches to a fallback model when a provider rate-limits a session",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/config.test.mjs test/detect.test.mjs test/plugin.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "rate-limit",
+    "fallback",
+    "model"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liamjv1/opencode-rate-limit-fallback.git",
+    "directory": "v2"
+  },
+  "bugs": {
+    "url": "https://github.com/liamjv1/opencode-rate-limit-fallback/issues"
+  },
+  "homepage": "https://github.com/liamjv1/opencode-rate-limit-fallback/tree/main/v2#readme",
+  "peerDependencies": {
+    "@opencode/plugin": ">=2.2.5"
+  },
+  "devDependencies": {
+    "@opencode/plugin": "2.2.5",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
