@@ -102,6 +102,21 @@ Log entries include timestamps and details about rate limit detection, fallback 
 
 This approach keeps the conversation history clean - no "continue" messages or duplicates. The session seamlessly continues with the fallback model as if the rate limit never happened.
 
+## OpenCode V2
+
+OpenCode V2 uses a different plugin API (`plugins` array and a `{ id, setup }` export), so the V1 entrypoint at the repository root cannot be loaded there. A V2-compatible implementation lives in [`v2/`](./v2/README.md) and is published separately.
+
+```jsonc
+{
+  "plugins": [
+    {
+      "package": "opencode-rate-limit-fallback-v2",
+      "options": { "fallbackModel": "anthropic/claude-sonnet-4-5" }
+    }
+  ]
+}
+```
+
 ## Local Development
 
 For local development, use a `file://` URL in your config:
